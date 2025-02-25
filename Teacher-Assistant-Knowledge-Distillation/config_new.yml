@@ -1,0 +1,22 @@
+authorName: Anonymous
+experimentName: TAKD
+trialConcurrency: 1
+maxExecDuration: 48h
+maxTrialNum: 1
+
+#choice: local, remote, pai
+trainingServicePlatform: local
+searchSpacePath: search_space.json
+useAnnotation: false
+tuner:
+  #choice: TPE, Random, Anneal, Evolution, BatchTuner
+  #SMAC (SMAC should be installed through nnictl)
+  builtinTunerName: TPE
+  classArgs:
+    #choice: maximize, minimize
+    optimize_mode: maximize
+trialCommand: python3 train.py --epochs 160 --teacher resnet110 --student resnet8 --cuda 1
+trialCodeDirectory: .
+trainingService:
+  local:
+    use_active_gpu: false  # Ensure this is under the local section
