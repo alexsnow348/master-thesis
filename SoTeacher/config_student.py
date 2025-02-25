@@ -70,8 +70,8 @@ def parse_option():
         opt.model_path = '/path/to/my/student_model'
         opt.tb_path = '/path/to/my/student_tensorboards'
     else:
-        opt.model_path = './save/student_model'
-        opt.tb_path = './save/student_tensorboards'
+        opt.model_path = './save_standard/student_model'
+        opt.tb_path = './save_standard/student_tensorboards'
 
     iterations = opt.lr_decay_epochs.split(',')
     opt.lr_decay_epochs = list([])

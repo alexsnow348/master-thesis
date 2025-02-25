@@ -1,0 +1,1 @@
+Epoch	lr	Time-elapse(Min)	Train-Loss	Test-Loss	Train-Acc	Test-Acc	Test-Acc-Top5	

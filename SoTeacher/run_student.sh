@@ -13,12 +13,12 @@ beta=0
 distill_method=kd
 teacher=wrn_40_2
 student=wrn_40_1
-# teacher_name='cifar100_lr_0.05_decay_0.0005'  # vanilla teacher
-teacher_name=cifar100_lr_0.05_decay_0.0005_lip_alpha=1e-05_consist_alpha=1_linear  # SoTeacher
+teacher_name='cifar100_lr_0.05_decay_0.0005'  # vanilla teacher
+# teacher_name=cifar100_lr_0.05_decay_0.0005_lip_alpha=1e-05_consist_alpha=1_linear  # SoTeacher
 trial=0
 
 # -- Config --
-python config_student.py --path_t ./save/models/"$teacher"_"$teacher_name"_trial_"$trial"/"$teacher"_last.pth \
+python config_student.py --path_t ./save_standard/models/"$teacher"_"$teacher_name"_trial_"$trial"/"$teacher"_last.pth \
                          --distill $distill_method \
                          --model_s "$student" \
                          -r "$gamma" -a "$alpha" -b "$beta" \

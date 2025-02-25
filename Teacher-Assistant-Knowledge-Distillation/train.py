@@ -157,12 +157,16 @@ class TrainManager(object):
 		if models_are_plane:
 			lr = 0.01
 		else:
-			if epoch < int(epochs/2.0): #Typo epoch->epochs
+			# if epoch < int(epochs/2.0): #Typo epoch->epochs
+			if epoch < 80:
 				lr = 0.1
-			elif epoch < int(epochs*3/4.0):
-				lr = 0.1 * 0.1
+			elif epoch >= 80 and epoch < 120:
+				lr = 0.01
+			# elif epoch < int(epochs*3/4.0):
+			elif  epoch <= 120:
+				lr = 0.001
 			else:
-				lr = 0.1 * 0.01
+				lr = 0.001
 		
 		# update optimizer's learning rate
 		for param_group in optimizer.param_groups:
@@ -172,7 +176,7 @@ class TrainManager(object):
 if __name__ == "__main__":
 	# Parsing arguments and prepare settings for training
 	args = parse_arguments()
-	tb_folder = "./logs/{}_{}".format(args.student, args.teacher)
+	tb_folder = "./logs_original/{}_{}".format(args.student, args.teacher)
 	# tensorboard logge
 	logger = tb_logger.Logger(logdir=tb_folder, flush_secs=2)
 
