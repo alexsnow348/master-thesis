@@ -176,7 +176,7 @@ class TrainManager(object):
 if __name__ == "__main__":
 	# Parsing arguments and prepare settings for training
 	args = parse_arguments()
-	tb_folder = "./logs_original/{}_{}".format(args.student, args.teacher)
+	tb_folder = "./logs_original_v2/{}_{}".format(args.student, args.teacher)
 	# tensorboard logge
 	logger = tb_logger.Logger(logdir=tb_folder, flush_secs=2)
 
